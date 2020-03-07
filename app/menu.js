@@ -1,6 +1,8 @@
+'use strict'
 const { app, Menu } = require('electron').remote
+const i18n = require('./translation/i18n')
 
-const template =
+const template = 
 [
     {
         label: i18n.__('Edit'),
@@ -39,11 +41,9 @@ const template =
             {
                 label: i18n.__('Play/Pause'),
                 accelerator: "Space",
-                click()
-                {
+                click() {
                     // NOTE: if focus is not in any input field (search, playlist)
-                    if (document.activeElement.type == undefined)
-                    {
+                    if (document.activeElement.type === undefined) {
                         // console.log(document.activeElement);
                         // console.log(document.activeElement.type);
                         // console.log(Object.prototype.toString.call(document.activeElement));
