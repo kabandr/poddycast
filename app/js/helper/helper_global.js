@@ -220,9 +220,9 @@ function parseFeedEpisodeDuration(_Duration) {
 // ---------------------------------------------------------------------------------------------------------------------
 
 function setProxyMode() {
-    const { app } = require('electron').remote
+    const { app, Menu } = require('electron').remote
 
-    var MenuItems = app.getApplicationMenu().items
+    var MenuItems = Menu.getApplicationMenu().items
 
     for (let i = MenuItems.length - 1; i >= 0; i--) {
         if (MenuItems[i].label === i18n.__('Settings')) {
@@ -241,9 +241,9 @@ function setProxyMode() {
 
 function isProxySet() {
     var ProxySettings = false;
-    const { app } = require('electron').remote
+    const { app, Menu } = require('electron').remote
 
-    var MenuItems = app.getApplicationMenu().items
+    var MenuItems = Menu.getApplicationMenu().items
 
     for (let i = MenuItems.length - 1; i >= 0; i --) {
         if (MenuItems[i].label === i18n.__('Settings')) {
@@ -332,9 +332,9 @@ function changeSettings(_FeedUrl, _ToInbox) {
 }
 
 function setMinimize() {
-    const { app } = require('electron').remote
+    const { app, Menu } = require('electron').remote
 
-    var MenuItems = app.getApplicationMenu().items
+    var MenuItems = Menu.getApplicationMenu().items
 
     for (let i = MenuItems.length - 1; i >= 0; i--) {
         if (MenuItems[i].label === i18n.__('Settings')) {

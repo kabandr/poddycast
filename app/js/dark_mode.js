@@ -1,5 +1,5 @@
 'use strict'
-const {app} = require('electron').remote
+const {app, Menu} = require('electron').remote
 const setPreference = require('./helper/helper_global/setPreference')
 
 
@@ -40,8 +40,8 @@ function getDarkModeMenuItem(_ParentMenu) {
 
     let MenuItem = null
 
-    for (let i = 0; i < app.getApplicationMenu().items.length; i++) {
-        var appMenuItem = app.getApplicationMenu().items[i]
+    for (var i = 0; i < Menu.getApplicationMenu().items.length; i++) {
+        appMenuItem = Menu.getApplicationMenu().items[i]
 
         for (let j = 0; j < appMenuItem.submenu.items.length; j++) {
             if (appMenuItem.submenu.items[j].label === i18n.__('Dark Mode') && appMenuItem.submenu.items[j].type === 'checkbox') {
@@ -55,8 +55,6 @@ function getDarkModeMenuItem(_ParentMenu) {
             break
         }
     }
-
-    console.log(MenuItem);
 
     return MenuItem
 }
